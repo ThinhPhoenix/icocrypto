@@ -1,4 +1,5 @@
 'use client'
+import PageHeader from "@/components/blocks/page-header";
 import Ikon from "@/components/elements/element-ikon";
 import Modals from "@/components/elements/element-modals";
 import PictureModals from "@/components/elements/element-picture-modals";
@@ -7,47 +8,33 @@ import VideoModals from "@/components/elements/element-video-modals";
 import Videos from "@/components/elements/element-videos";
 import Image from "next/image";
 import { useState } from "react";
+import styles from "@/app/page.module.css"
+import SignIn from "@/components/blocks/login";
+import { StyledSize } from "@/utils/sizeclass";
+import CustomButton from "@/components/elements/element-button";
 
 export default function Home() {
-  const [open, setOpen] = useState(false)
-  const [open2, setOpen2] = useState(false)
-
-  const openHandle = () => {
-    setOpen(true)
-  }
-
-  const closeHandle = () => {
-    setOpen(false)
-  }
-
-  const openHandle2 = () => {
-    setOpen2(true)
-  }
-
-  const closeHandle2 = () => {
-    setOpen2(false)
-  }
-
   return (
-    <>
-      <Videos src="https://www.youtube.com/watch?v=3m30BWkkssA"
-      type={1}
-      thumb="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvZr3ZgReTYWifTT4rRFIl4h506L_mViQRAQ&s"
-      />
-      <button onClick={openHandle}>Open modals content <Ikon ico="ikon-bulb"/></button>
-        <Modals size="xl" position="center" open={open} onClose={closeHandle}>
-          <div className="row">
-              <Image src="https://neweralive.na/wp-content/uploads/2024/06/lloyd-sikeba.jpg" className="col-6"
-              alt="image" width={500} height={500}
-              />
-              <div className="col-6">
-                <h3>Header</h3>
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias provident optio aperiam est possimus veritatis, suscipit pariatur laboriosam deserunt aspernatur voluptas, eveniet beatae iure repudiandae aliquid. Debitis dolores vero nisi.</span>
-              </div>
+    <div style={{
+      paddingTop: '50px',
+    }}>
+        <PageHeader
+        size={StyledSize.Xl}
+        title="WORLD FIRST DECENTRALIZED MARKETPLACE WITH BLOCKCHAIN INFRASTRUCTURE"
+        >
+          <div>
+          The first decentralized Marketplace which makes simplifies and standarizes data with blockchain technology. We provides user-friendly, efficient and secure crypto solutions and utilizing blockchain technology.
           </div>
-      </Modals>
-      <button onClick={openHandle2}>Open modals picture <Ikon ico="ikon-bulb"/></button>
-      <PictureModals src="https://neweralive.na/wp-content/uploads/2024/06/lloyd-sikeba.jpg" open={open2} onClose={closeHandle2}/>
-    </>
+          <div style={{
+            display: "flex",
+            gap: "20px",
+            justifyContent: 'center',
+            marginTop: '20px'
+          }}>
+            <CustomButton text="Token sale" variant="primary"/>
+            <CustomButton text="Private sale" outline/>
+          </div>
+        </PageHeader>
+    </div>
   );
 }

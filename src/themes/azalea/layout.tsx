@@ -6,6 +6,9 @@ import "@/themes/vendor.bundle.css";
 import styles from "@/app/page.module.css";
 import "./azalea.css";
 import Body from "@/components/body";
+import PageHeader from "@/components/blocks/page-header";
+import SignIn from "@/components/blocks/login"
+
 
 const AzaleaLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
     const navbarRefs = useRef<HTMLElement>(null);
@@ -47,7 +50,7 @@ const AzaleaLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
                             </li>
                         </NavBar>
                     </header>
-                    <main className={`nk-pages tc-light ${styles.main}`}>
+                    <main className={`nk-pages tc-light`}>
                         {children}
                     </main>
                 </div>

@@ -1,7 +1,8 @@
+import { StyledSize } from "@/utils/sizeclass";
 import React, { ReactNode, useCallback, useEffect, useState } from "react";
 
 interface ModalsProps {
-  size?: 'sm' | 'lg' | 'xl';
+  size?: StyledSize;
   position?: 'top' | 'center' | 'bottom';
   children: ReactNode;
   open: boolean;
@@ -9,7 +10,7 @@ interface ModalsProps {
 }
 
 export default function Modals({ 
-  size = 'xl', 
+  size = StyledSize.Xl, 
   position = 'center', 
   children, 
   open, 
